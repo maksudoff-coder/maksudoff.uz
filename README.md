@@ -1,6 +1,6 @@
 # maksudoff.uz
 
-Shaxboz Maksudoff'ning shaxsiy sayti.
+maksudoff.uz veb-sayti.
 
 - `public/` — sayt fayllari (Cloudflare Pages: **Build output directory** = `public`, build command bo'sh)
 - `public/ru/` — rus tilidagi sahifa (SEO uchun, `public/index.html` dan yasalgan)
