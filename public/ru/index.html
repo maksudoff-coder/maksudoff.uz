@@ -336,6 +336,8 @@ body[data-bg="6"] .pj-shot{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 90px
 .pj-bar span{margin-left:12px;padding:4px 12px;border-radius:7px;background:rgba(255,255,255,.08);font:500 11px var(--text);color:#D9CFC1;min-width:40%}
 .pj-view{position:absolute;left:0;right:0;top:34px;bottom:0;overflow:hidden}
 .pj-cv{position:absolute;left:0;top:0;width:1000px;height:590px;transform-origin:0 0;transform:scale(var(--ms,1)) translateX(calc(var(--d)*-26px))}
+.pj-img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.pj-empty{background:repeating-linear-gradient(135deg,#F4F0EA 0 12px,#EFE9E0 12px 24px)}
 .pj-txt{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:start;margin-top:26px}
 .pj-txt h3{margin:0;font:400 clamp(24px,2.4vw,36px)/1.1 var(--serif);letter-spacing:-.02em}
 .pj-txt p{margin:4px 0 0;font:400 15px/1.6 var(--text);color:var(--mut)}
@@ -1048,7 +1050,7 @@ var v=(q==='6'?'6':'1');if(document.body)document.body.dataset.bg=v;else documen
         <div class="pj-txt"><h3>Sizning saytingiz</h3><p>Kafe, klinika, do'kon yoki shaxsiy sahifa. Qisqacha yozing, birinchi variantni ko'rsataman.</p></div>
       </article>
     </div>
-    <div class="hz-prog"><span id="hzn">01</span><i><b id="hzbar"></b></i><span>04</span></div>
+    <div class="hz-prog"><span id="hzn">01</span><i><b id="hzbar"></b></i><span id="hztotal">04</span></div>
   </div>
 </section>
 
@@ -1497,7 +1499,8 @@ const CONTACT = {
     abBig.innerHTML = html;
     words = [...abBig.querySelectorAll('.w')]; litN = -1;
   }
-  splitAbout(abBig.textContent.trim());
+  ABOUT.uz = abBig.textContent.trim(); if (abBig.dataset.ru) ABOUT.ru = abBig.dataset.ru;
+  splitAbout(ABOUT.uz);
 
   // gorizontal galereya
   const hz = $('#loyihalar'), track = $('#hztrack'), pjs = [...track.querySelectorAll('.pj')], hzn = $('#hzn'), hzbar = $('#hzbar');
@@ -1732,22 +1735,23 @@ const CONTACT = {
     const pl = b.dataset.plan;
     leadCtx = 'Paket: ' + pl;
     leadmsg.value = LANG === 'ru'
-      ? (pl === 'Boshqa loyiha' ? 'Здравствуйте! Мне нужен не сайт, а другой проект (бот / генератор документов). Можем обсудить?' : `Здравствуйте! Интересует пакет «${tr(pl)}». Можно уточнить цену и сроки?`)
+      ? (pl === 'Boshqa loyiha' ? 'Здравствуйте! Мне нужен не сайт, а другой проект (бот / генератор документов). Можем обсудить?' : `Здравствуйте! Интересует пакет «${b.dataset.planRu || tr(pl)}». Можно уточнить цену и сроки?`)
       : (pl === 'Boshqa loyiha' ? "Assalomu alaykum! Menga sayt emas, boshqa loyiha kerak edi (bot / hujjat generatori). Gaplashsak bo'ladimi?" : `Assalomu alaykum! "${pl}" paketi qiziqtiryapti. Narx va muddatini aniqlashtirsak bo'ladimi?`);
     show('aloqa');
   }));
 
   // ===== til almashtirish (UZ / RU) =====
   const I18N_SKIP = '.view,.phone,.pj-cv,#pv,#capL,#kinds,#abbig,script,style,svg';
-  const tNodes = [], tAttrs = [];
+  const tNodes = [], tAttrs = [], tEls = [];
   (function collect(){
     const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n;
     while ((n = w.nextNode())){
       const t = n.nodeValue.trim(); if (!t) continue;
-      const pe = n.parentElement; if (!pe || pe.closest(I18N_SKIP)) continue;
+      const pe = n.parentElement; if (!pe || pe.closest(I18N_SKIP) || pe.closest('[data-ru]')) continue;
       const cx = pe.closest('[data-ctx]'), key = (cx ? cx.dataset.ctx + '|' : '') + t;
       if (key in RU) tNodes.push({n, uz: n.nodeValue, ru: n.nodeValue.replace(t, RU[key])});
     }
+    document.querySelectorAll('[data-ru]:not(#abbig)').forEach(el => { if (!el.closest(I18N_SKIP)) tEls.push({el, uz: el.textContent, ru: el.dataset.ru}); });
     document.querySelectorAll('[placeholder],[aria-label]').forEach(el => {
       if (el.closest(I18N_SKIP)) return;
       ['placeholder','aria-label'].forEach(a => { const v = el.getAttribute(a); if (v && v in RU) tAttrs.push({el, a, uz: v, ru: RU[v]}); });
@@ -1760,6 +1764,7 @@ const CONTACT = {
     document.title = META[l].title; if (metaDesc) metaDesc.setAttribute('content', META[l].desc);
     tNodes.forEach(o => { o.n.nodeValue = o[l]; });
     tAttrs.forEach(o => o.el.setAttribute(o.a, o[l]));
+    tEls.forEach(o => { o.el.textContent = o[l]; });
     buildCaps(); splitAbout(ABOUT[l]); buildChips(); renderPv(false);
     if (!leadnote.classList.contains('err')) leadnote.textContent = tr(NOTE_UZ);
     langbtn.setAttribute('aria-label', l === 'ru' ? "O'zbek tiliga o'tish" : 'Перейти на русский');

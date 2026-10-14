@@ -1,0 +1,351 @@
+{
+ "version": 1,
+ "projects": [
+  {
+   "title": {
+    "uz": "Sud vositalari",
+    "ru": "Инструменты для суда"
+   },
+   "desc": {
+    "uz": "Tayinlash ajrimi kabi protsessual hujjatlarni bir necha daqiqada tayyorlaydigan generatorlar.",
+    "ru": "Генераторы, которые за несколько минут готовят процессуальные документы, например определение о назначении дела."
+   },
+   "tag": {
+    "uz": "Ochiq",
+    "ru": "Открыт"
+   },
+   "url": "https://sud.maksudoff.uz",
+   "note": {
+    "uz": "",
+    "ru": ""
+   },
+   "bar": "sud.maksudoff.uz",
+   "mock": "sud",
+   "img": ""
+  },
+  {
+   "title": {
+    "uz": "Bayonnoma tizimi",
+    "ru": "Система протоколов"
+   },
+   "desc": {
+    "uz": "Sud majlisi bayonnomasini tez yozish uchun ish joyi: hisoblar, serverda saqlash, Word'ga eksport.",
+    "ru": "Рабочее место для быстрого ведения протокола судебного заседания: учётные записи, хранение на сервере, экспорт в Word."
+   },
+   "tag": {
+    "uz": "Yopiq tizim",
+    "ru": "Закрытая система"
+   },
+   "url": "",
+   "note": {
+    "uz": "ichki foydalanish uchun",
+    "ru": "для внутреннего использования"
+   },
+   "bar": "bayonnoma.maksudoff.uz",
+   "mock": "bay",
+   "img": ""
+  },
+  {
+   "title": {
+    "uz": "Tutor Maksudova",
+    "ru": "Tutor Maksudova"
+   },
+   "desc": {
+    "uz": "AQShda onlayn dars beradigan matematika o'qituvchisi uchun platforma: 390 mavzu, kabinetlar, Telegram bot.",
+    "ru": "Платформа для преподавателя математики, которая ведёт онлайн-уроки в США: 390 тем, личные кабинеты, Telegram-бот."
+   },
+   "tag": {
+    "uz": "Ochiq",
+    "ru": "Открыт"
+   },
+   "url": "https://maksudova.com",
+   "note": {
+    "uz": "",
+    "ru": ""
+   },
+   "bar": "maksudova.com",
+   "mock": "tut",
+   "img": ""
+  }
+ ],
+ "services": [
+  {
+   "title": {
+    "uz": "Veb-saytlar",
+    "ru": "Веб-сайты"
+   },
+   "desc": {
+    "uz": "Kafe, do'kon, o'quv markazi yoki shaxsiy sahifa. Tez ochiladi, telefonda ham chiroyli.",
+    "ru": "Кафе, магазин, учебный центр или личная страница. Быстро открываются и красиво выглядят на телефоне."
+   },
+   "img": "img/kafe-hero.webp"
+  },
+  {
+   "title": {
+    "uz": "Hujjat generatorlari",
+    "ru": "Генераторы документов"
+   },
+   "desc": {
+    "uz": "Ariza, shartnoma, ajrim kabi hujjatlarni shablon bo'yicha to'ldirib, Word faylga chiqaradi.",
+    "ru": "Заполняют заявления, договоры и определения по шаблону и выгружают их в Word."
+   },
+   "img": "img/yuridik-hero.webp"
+  },
+  {
+   "title": {
+    "uz": "Ta'lim platformalari",
+    "ru": "Образовательные платформы"
+   },
+   "desc": {
+    "uz": "O'qituvchi va o'quv markazlari uchun mashqlar, o'quvchi kabineti va natijalar.",
+    "ru": "Упражнения, кабинет ученика и результаты для преподавателей и учебных центров."
+   },
+   "img": "img/markaz-hero.webp"
+  },
+  {
+   "title": {
+    "uz": "Telegram botlar",
+    "ru": "Telegram-боты"
+   },
+   "desc": {
+    "uz": "Buyurtma va bron xabarnomalari, hisobotlar, saytingiz bilan bog'langan botlar.",
+    "ru": "Уведомления о заказах и бронях, отчёты, боты, связанные с вашим сайтом."
+   },
+   "img": "tg"
+  }
+ ],
+ "about": {
+  "uz": "Men Shaxboz Maksudoff, Toshkentdanman. Huquq sohasida ishlayman, shuning uchun rasmiy hujjatlar va *aniq tartib* bilan ishlashni ichidan bilaman. Takrorlanadigan qo'l mehnatini ko'rib, uni *dastur bilan* yengillashtirishni boshladim. Endi xuddi shu aniqlik bilan bizneslar uchun *sayt quraman.*",
+  "ru": "Я Shaxboz Maksudoff, из Ташкента. Работаю в юридической сфере, поэтому изнутри знаю, что такое официальные документы и *чёткий порядок.* Видя однообразную ручную работу, я начал облегчать её *с помощью программ.* Теперь с той же точностью *создаю сайты* для бизнеса."
+ },
+ "steps": [
+  {
+   "title": {
+    "uz": "Tinglayman",
+    "ru": "Слушаю"
+   },
+   "desc": {
+    "uz": "Biznesingiz, mijozlaringiz va maqsadingiz haqida gaplashamiz.",
+    "ru": "Обсуждаем ваш бизнес, клиентов и цели."
+   }
+  },
+  {
+   "title": {
+    "uz": "Birinchi variant",
+    "ru": "Первый вариант"
+   },
+   "desc": {
+    "uz": "Bir necha kunda ko'rib, bosib ko'rish mumkin bo'lgan versiyani ko'rsataman.",
+    "ru": "Через несколько дней показываю версию, которую можно посмотреть и потрогать."
+   }
+  },
+  {
+   "title": {
+    "uz": "Birga sayqallaymiz",
+    "ru": "Доводим вместе"
+   },
+   "desc": {
+    "uz": "Matn, rang va rasmlarni sizning fikringiz bilan to'g'rilaymiz.",
+    "ru": "Правим тексты, цвета и фото с учётом вашего мнения."
+   }
+  },
+  {
+   "title": {
+    "uz": "Ishga tushiramiz",
+    "ru": "Запускаем"
+   },
+   "desc": {
+    "uz": "Domen, hosting va telefon versiyasini o'zim sozlayman.",
+    "ru": "Сам настраиваю домен, хостинг и мобильную версию."
+   }
+  }
+ ],
+ "plans": [
+  {
+   "hot": false,
+   "name": {
+    "uz": "Bir sahifali sayt",
+    "ru": "Одностраничный сайт"
+   },
+   "for": {
+    "uz": "Vizitka yoki reklama uchun bitta sahifa",
+    "ru": "Одна страница: визитка или реклама"
+   },
+   "price": "1 500 000",
+   "time": {
+    "uz": "5–7 kun",
+    "ru": "5–7 дней"
+   },
+   "features": [
+    {
+     "uz": "Bitta sahifa, 5–7 blok",
+     "ru": "Одна страница, 5–7 блоков"
+    },
+    {
+     "uz": "Telefon va kompyuterga moslashgan",
+     "ru": "Адаптирован под телефон и компьютер"
+    },
+    {
+     "uz": "Arizalar Telegram'ingizga keladi",
+     "ru": "Заявки приходят вам в Telegram"
+    },
+    {
+     "uz": "Google va Yandex'ga qo'shish",
+     "ru": "Добавление в Google и Яндекс"
+    },
+    {
+     "uz": "1 oy bepul tuzatishlar",
+     "ru": "1 месяц бесплатных правок"
+    }
+   ]
+  },
+  {
+   "hot": true,
+   "name": {
+    "uz": "Biznes sayt",
+    "ru": "Бизнес-сайт"
+   },
+   "for": {
+    "uz": "Kafe, klinika, o'quv markazi, xizmatlar",
+    "ru": "Кафе, клиника, учебный центр, услуги"
+   },
+   "price": "3 500 000",
+   "time": {
+    "uz": "10–14 kun",
+    "ru": "10–14 дней"
+   },
+   "features": [
+    {
+     "uz": "5 sahifagacha",
+     "ru": "До 5 страниц"
+    },
+    {
+     "uz": "O'zbek va rus tillarida",
+     "ru": "На узбекском и русском"
+    },
+    {
+     "uz": "Matn va rasmlarni o'zingiz o'zgartiradigan admin panel",
+     "ru": "Админ-панель, чтобы самому менять тексты и фото"
+    },
+    {
+     "uz": "Arizalar Telegram'ga, tashriflar statistikasi",
+     "ru": "Заявки в Telegram, статистика посещений"
+    },
+    {
+     "uz": "1 oy bepul tuzatishlar",
+     "ru": "1 месяц бесплатных правок"
+    }
+   ]
+  },
+  {
+   "hot": false,
+   "name": {
+    "uz": "Onlayn do'kon",
+    "ru": "Интернет-магазин"
+   },
+   "for": {
+    "uz": "Katalog, savat va buyurtmalar",
+    "ru": "Каталог, корзина и заказы"
+   },
+   "price": "6 000 000",
+   "time": {
+    "uz": "3–4 hafta",
+    "ru": "3–4 недели"
+   },
+   "features": [
+    {
+     "uz": "Katalog va mahsulot sahifalari",
+     "ru": "Каталог и страницы товаров"
+    },
+    {
+     "uz": "Savat, buyurtmalar Telegram'ga keladi",
+     "ru": "Корзина, заказы приходят в Telegram"
+    },
+    {
+     "uz": "Mahsulot qo'shadigan admin panel",
+     "ru": "Админ-панель для добавления товаров"
+    },
+    {
+     "uz": "O'zbek va rus tillarida",
+     "ru": "На узбекском и русском"
+    },
+    {
+     "uz": "1 oy bepul tuzatishlar",
+     "ru": "1 месяц бесплатных правок"
+    }
+   ]
+  }
+ ],
+ "faq": [
+  {
+   "q": {
+    "uz": "Sayt necha kunda tayyor bo'ladi?",
+    "ru": "За сколько дней будет готов сайт?"
+   },
+   "a": {
+    "uz": "Bir sahifali sayt odatda 5–7 kunda, biznes sayt 2 haftagacha, onlayn do'kon 3–4 haftada tayyor bo'ladi. Aniq muddat shartnomada yoziladi.",
+    "ru": "Одностраничный сайт обычно готов за 5–7 дней, бизнес-сайт до 2 недель, интернет-магазин за 3–4 недели. Точный срок прописывается в договоре."
+   }
+  },
+  {
+   "q": {
+    "uz": "To'lov qanday amalga oshiriladi?",
+    "ru": "Как происходит оплата?"
+   },
+   "a": {
+    "uz": "50% ish boshlanishida, qolgan 50% sayt tayyor bo'lib, sizga ko'rsatilgandan keyin. Naqd pul, karta yoki bank o'tkazmasi orqali.",
+    "ru": "50% в начале работы, остальные 50% после того, как сайт готов и показан вам. Наличными, картой или банковским переводом."
+   }
+  },
+  {
+   "q": {
+    "uz": "Shartnoma tuziladimi?",
+    "ru": "Заключается ли договор?"
+   },
+   "a": {
+    "uz": "Ha. Har bir loyiha shartnoma asosida bajariladi: narx, muddat va natija yozma kelishiladi.",
+    "ru": "Да. Каждый проект выполняется по договору: цена, сроки и результат согласуются письменно."
+   }
+  },
+  {
+   "q": {
+    "uz": "Domen va hosting kimda bo'ladi?",
+    "ru": "На кого оформляются домен и хостинг?"
+   },
+   "a": {
+    "uz": "Domen sizning nomingizga rasmiylashtiriladi. Sayt Cloudflare'da joylashadi: tez ochiladi va hosting uchun oylik to'lov yo'q.",
+    "ru": "Домен оформляется на ваше имя. Сайт размещается на Cloudflare: быстро открывается, ежемесячной платы за хостинг нет."
+   }
+  },
+  {
+   "q": {
+    "uz": "Keyin o'zgartirish kiritsa bo'ladimi?",
+    "ru": "Можно ли потом вносить изменения?"
+   },
+   "a": {
+    "uz": "Ha. Topshirilgandan keyin 1 oy davomida kichik tuzatishlar bepul. Keyingi o'zgarishlar kelishilgan narxda.",
+    "ru": "Да. В течение месяца после сдачи мелкие правки бесплатно. Дальнейшие изменения по договорённой цене."
+   }
+  },
+  {
+   "q": {
+    "uz": "Saytni o'zim tahrirlay olamanmi?",
+    "ru": "Смогу ли я сам редактировать сайт?"
+   },
+   "a": {
+    "uz": "Biznes sayt va onlayn do'konda oddiy admin panel bo'ladi: matn, rasm va mahsulotlarni o'zingiz o'zgartirasiz.",
+    "ru": "В бизнес-сайте и интернет-магазине будет простая админ-панель: тексты, фото и товары вы меняете сами."
+   }
+  },
+  {
+   "q": {
+    "uz": "Sayt rus tilida ham bo'ladimi?",
+    "ru": "Будет ли сайт на русском языке?"
+   },
+   "a": {
+    "uz": "Ha. Biznes sayt va do'kon o'zbek va rus tillarida tayyorlanadi, bir sahifali saytga rus tili alohida qo'shiladi.",
+    "ru": "Да. Бизнес-сайт и магазин делаются на узбекском и русском, в одностраничный сайт русский язык добавляется отдельно."
+   }
+  }
+ ]
+}

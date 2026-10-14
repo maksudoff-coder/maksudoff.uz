@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin · Maksudoff</title>
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5F1;--card:#fff;--ink:#241912;--ink2:#6E5A44;--mist:#A99B88;--line:#E9E2D7;--gold:#B8893F;--ok:#2E8B57;--bad:#C8553D;
+  --serif:'Fraunces',Georgia,serif;--text:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--text);-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:20px}
+.login form{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 30px;box-shadow:0 30px 60px -40px rgba(40,30,20,.35)}
+.login img{height:44px;display:block;margin-bottom:26px}
+.login h1{margin:0 0 6px;font:400 30px/1.1 var(--serif);letter-spacing:-.02em}
+.login p{margin:0 0 24px;color:var(--ink2)}
+.login .err{color:var(--bad);margin:12px 0 0;min-height:22px}
+
+/* inputs */
+.in,.ta{width:100%;padding:11px 13px;border-radius:11px;border:1px solid var(--line);background:#fff;outline:0;transition:border-color .2s,box-shadow .2s}
+.ta{resize:vertical;min-height:84px;line-height:1.5}
+.in:focus,.ta:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,137,63,.14)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:#FBF5EA;font-weight:500;white-space:nowrap}
+.btn:hover{background:#3A2B20}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:rgba(36,25,18,.06)}
+.btn.small{height:34px;padding:0 13px;font-size:13.5px}
+.btn.full{width:100%;justify-content:center;margin-top:14px}
+.btn[disabled]{opacity:.5;cursor:default}
+
+/* app */
+header.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:14px;padding:14px clamp(16px,3vw,32px);background:rgba(247,245,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top img{height:34px}
+header.top .sp{flex:1}
+header.top a{color:var(--ink2);text-decoration:none;font-size:14px}
+header.top a:hover{color:var(--ink)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;padding:20px clamp(16px,3vw,32px) 0;max-width:1100px;margin:0 auto}
+.tabs button{height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-weight:500}
+.tabs button.on{background:var(--ink);border-color:var(--ink);color:#FBF5EA}
+main{max-width:1100px;margin:0 auto;padding:22px clamp(16px,3vw,32px) 140px}
+.hint{margin:0 0 18px;color:var(--ink2);font-size:14px}
+.hint b{color:var(--ink)}
+.item{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px 20px;margin-bottom:14px}
+.item-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.item-h .n{font:500 12px var(--mono);color:var(--gold)}
+.item-h .t{flex:1;font:500 17px var(--serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ic{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--ink2)}
+.ic:hover{border-color:var(--ink);color:var(--ink)}
+.ic.del:hover{border-color:var(--bad);color:var(--bad)}
+.ic svg{width:16px;height:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.f{display:grid;gap:6px;margin-bottom:12px}
+.f>span{font-size:12.5px;font-weight:500;color:var(--ink2);display:flex;align-items:center;gap:8px}
+.f>span i{font:500 10.5px var(--mono);font-style:normal;padding:2px 6px;border-radius:6px;background:#F1ECE4;color:var(--ink2)}
+.f small{color:var(--mist);font-size:12.5px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.add{width:100%;height:52px;border-radius:16px;border:1.5px dashed #D9CFC0;background:transparent;color:var(--ink2);font-weight:500}
+.add:hover{border-color:var(--gold);color:var(--ink)}
+.chk{display:flex;align-items:center;gap:8px;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--ink)}
+
+/* media pick */
+.media{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.thumb{width:200px;aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);background:#F4F0EA center/cover no-repeat;display:grid;place-items:center;color:var(--mist);font-size:12.5px;text-align:center;padding:8px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:6px}
+.seg button{height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;color:var(--ink2)}
+.seg button.on{background:var(--ink);border-color:var(--ink);color:#FBF5EA}
+.presets{display:flex;gap:6px;flex-wrap:wrap;max-width:520px}
+.presets button{width:64px;height:42px;border-radius:9px;border:2px solid transparent;background:#eee center/cover;padding:0}
+.presets button.on{border-color:var(--gold)}
+.presets .tgp{background:linear-gradient(160deg,#22304F,#121A2C);color:#fff;font-size:10px}
+
+/* save bar */
+.bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 20px;border-radius:999px;background:var(--ink);color:#FBF5EA;box-shadow:0 20px 50px -20px rgba(0,0,0,.5);width:max-content;max-width:calc(100% - 24px)}
+.bar .st{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .st.dirty::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#E9B949;margin-right:8px}
+.bar .btn{background:#FBF5EA;color:var(--ink);border-color:#FBF5EA}
+.bar .btn:hover{background:#fff}
+.toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-80px);z-index:30;padding:12px 18px;border-radius:12px;background:var(--ink);color:#fff;font-weight:500;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.toast.on{transform:translate(-50%,0)}
+.toast.bad{background:var(--bad)}
+.danger{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink2);font-size:14px}
+.danger button{border:0;background:none;color:var(--bad);text-decoration:underline;padding:0}
+@media (max-width:720px){
+  .grid2{grid-template-columns:1fr}
+  header.top .hide-m{display:none}
+  .thumb{width:100%}
+  .bar{left:12px;right:12px;transform:none;width:auto;border-radius:18px}
+}
+</style>
+</head>
+<body>
+
+<section class="login" id="login" hidden>
+  <form id="loginform">
+    <img src="/brand/maksudoff-logo.svg" alt="Maksudoff">
+    <h1>Admin panel</h1>
+    <p>Saytdagi matn va rasmlarni boshqarish</p>
+    <input class="in" type="password" id="pw" placeholder="Parol" autocomplete="current-password" required>
+    <button class="btn full" id="loginbtn">Kirish</button>
+    <p class="err" id="loginerr"></p>
+  </form>
+</section>
+
+<div id="app" hidden>
+  <header class="top">
+    <img src="/brand/maksudoff-logo.svg" alt="Maksudoff">
+    <span class="sp"></span>
+    <a href="/" target="_blank" rel="noopener">Saytni ko'rish ↗</a>
+    <button class="btn ghost small" id="logout">Chiqish</button>
+  </header>
+  <nav class="tabs" id="tabs">
+    <button data-tab="projects" class="on">Loyihalar</button>
+    <button data-tab="services">Xizmatlar</button>
+    <button data-tab="about">Haqimda</button>
+    <button data-tab="plans">Narxlar</button>
+    <button data-tab="faq">Savollar</button>
+  </nav>
+  <main id="main"></main>
+  <div class="bar"><span class="st" id="status">Yuklanmoqda...</span><button class="btn small" id="save" disabled>Saqlash</button></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const pad = n => String(n).padStart(2,'0');
+  const ICON = {
+    up: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>',
+    down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>',
+    del: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+  };
+  const PRESETS = ['kafe','klinika','markaz','mebel','gozallik','fitnes','avto','kiyim','mehmonxona','yuridik','qurilish','turizm'];
+  const MOCK_NAMES = {sud:'Sud hujjati chizmasi', bay:'Bayonnoma chizmasi', tut:'Matematika chizmasi'};
+
+  let C = null, MOCKS = [], tab = 'projects', dirty = false;
+
+  const toast = (t, bad) => { const el = $('#toast'); el.textContent = t; el.className = 'toast on' + (bad ? ' bad' : ''); clearTimeout(toast.t); toast.t = setTimeout(() => el.className = 'toast' + (bad ? ' bad' : ''), 2600); };
+  const setDirty = d => { dirty = d; const s = $('#status'); s.textContent = d ? "O'zgarishlar saqlanmagan" : "Hammasi saqlangan"; s.className = 'st' + (d ? ' dirty' : ''); $('#save').disabled = !d; };
+  addEventListener('beforeunload', e => { if (dirty){ e.preventDefault(); e.returnValue = ''; } });
+
+  async function api(path, opt = {}){
+    const r = await fetch('/api/admin/' + path, Object.assign({credentials: 'same-origin'}, opt));
+    let j = {}; try { j = await r.json(); } catch(_){}
+    if (r.status === 401 && path !== 'login'){ showLogin(); throw new Error('auth'); }
+    if (!r.ok || !j.ok) throw Object.assign(new Error(j.error || 'error'), {status: r.status, code: j.error});
+    return j;
+  }
+
+  // ---------- login ----------
+  function showLogin(){ $('#app').hidden = true; $('#login').hidden = false; $('#pw').focus(); }
+  $('#loginform').addEventListener('submit', async e => {
+    e.preventDefault(); $('#loginerr').textContent = ''; $('#loginbtn').disabled = true;
+    try { await api('login', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({password: $('#pw').value})}); $('#pw').value = ''; await boot(); }
+    catch(err){
+      $('#loginerr').textContent = err.code === 'wrong' ? "Parol noto'g'ri." : err.code === 'rate' ? "Juda ko'p urinish. Bir soatdan keyin qayta urining." : err.code === 'not_configured' ? "ADMIN_PASSWORD hali Cloudflare'da sozlanmagan." : "Xatolik yuz berdi. Qayta urinib ko'ring.";
+    } finally { $('#loginbtn').disabled = false; }
+  });
+  $('#logout').addEventListener('click', async () => { if (dirty && !confirm("Saqlanmagan o'zgarishlar bor. Baribir chiqasizmi?")) return; await api('logout', {method:'POST'}).catch(()=>{}); dirty = false; showLogin(); });
+
+  async function boot(){
+    try {
+      const j = await api('content');
+      C = j.content; MOCKS = j.mocks || [];
+      $('#login').hidden = true; $('#app').hidden = false;
+      setDirty(false); render();
+    } catch(err){ if (err.message !== 'auth'){ if (err.code === 'not_configured' || err.status === 503) { showLogin(); $('#loginerr').textContent = "ADMIN_PASSWORD hali Cloudflare'da sozlanmagan."; } else toast('Yuklab bo\'lmadi', true); } }
+  }
+
+  // ---------- helpers for fields ----------
+  // path: array of keys into C, e.g. ['projects',0,'title']
+  const get = p => p.reduce((o,k) => o?.[k], C);
+  const set = (p, v) => { const last = p[p.length-1]; const o = get(p.slice(0,-1)); o[last] = v; setDirty(true); };
+  const key = p => p.join('.');
+  function field(label, p, {area=false, ph='', hint=''} = {}){
+    const v = get(p) ?? '';
+    const ctl = area ? `<textarea class="ta" data-p="${key(p)}" placeholder="${esc(ph)}">${esc(v)}</textarea>` : `<input class="in" data-p="${key(p)}" value="${esc(v)}" placeholder="${esc(ph)}">`;
+    return `<label class="f"><span>${label}</span>${ctl}${hint ? `<small>${hint}</small>` : ''}</label>`;
+  }
+  function bi(label, p, opt = {}){
+    return `<div class="grid2">${field(label + ' <i>UZ</i>', [...p,'uz'], opt)}${field(label + ' <i>RU</i>', [...p,'ru'], {...opt, hint: ''})}</div>`;
+  }
+  function head(listName, i, title){
+    const len = C[listName].length;
+    return `<div class="item-h"><span class="n">${pad(i+1)}</span><span class="t">${esc(title || '—')}</span>
+      <button class="ic" data-act="up" data-l="${listName}" data-i="${i}" title="Yuqoriga" ${i===0?'disabled':''}>${ICON.up}</button>
+      <button class="ic" data-act="down" data-l="${listName}" data-i="${i}" title="Pastga" ${i===len-1?'disabled':''}>${ICON.down}</button>
+      <button class="ic del" data-act="del" data-l="${listName}" data-i="${i}" title="O'chirish">${ICON.del}</button></div>`;
+  }
+  const blank = () => ({uz:'', ru:''});
+
+  // ---------- tabs ----------
+  const VIEWS = {
+    projects(){
+      return `<p class="hint">Loyihalar sahifada <b>yonma-yon suriladigan</b> galereyada chiqadi. Oxirida doim "Sizning saytingiz" paneli turadi.</p>` +
+      C.projects.map((p,i) => `<div class="item">${head('projects', i, p.title.uz)}
+        ${bi('Sarlavha', ['projects',i,'title'])}
+        ${bi('Tavsif', ['projects',i,'desc'], {area:true})}
+        ${bi('Yorliq', ['projects',i,'tag'], {ph:'Ochiq'})}
+        <div class="grid2">${field('Havola (ixtiyoriy)', ['projects',i,'url'], {ph:'https://...', hint:"Bo'lsa, loyiha nomi yonida bosiladigan havola chiqadi."})}${field("Brauzer satridagi manzil", ['projects',i,'bar'], {ph:'masalan: diadema.uz'})}</div>
+        ${C.projects[i].url ? '' : bi("Havola o'rniga izoh", ['projects',i,'note'], {ph:'ichki foydalanish uchun'})}
+        <div class="f"><span>Ko'rinish</span>
+          <div class="media">
+            <div class="thumb" style="${p.img ? `background-image:url(${esc(p.img)})` : ''}">${p.img ? '' : (p.mock ? esc(MOCK_NAMES[p.mock] || p.mock) : 'Rasm yo\'q')}</div>
+            <div class="opts">
+              <div class="seg">${MOCKS.map(m => `<button data-act="mock" data-i="${i}" data-v="${m}" class="${!p.img && p.mock===m?'on':''}">${esc(MOCK_NAMES[m]||m)}</button>`).join('')}</div>
+              <div class="row"><button class="btn ghost small" data-act="upload" data-l="projects" data-i="${i}">Skrinshot yuklash</button>${p.img ? `<button class="btn ghost small" data-act="noimg" data-i="${i}">Rasmni olib tashlash</button>` : ''}</div>
+              <small style="color:var(--mist)">Skrinshot 16:10 nisbatda bo'lsa yaxshi (masalan 1600×1000).</small>
+            </div>
+          </div>
+        </div>
+      </div>`).join('') + `<button class="add" data-act="add" data-l="projects">+ Yangi loyiha</button>`;
+    },
+    services(){
+      return `<p class="hint">Xizmatlar katta yozuvlar ro'yxati bo'lib chiqadi. Kompyuterda ustiga kelinganda tanlangan rasm ko'rinadi.</p>` +
+      C.services.map((s,i) => `<div class="item">${head('services', i, s.title.uz)}
+        ${bi('Nomi', ['services',i,'title'])}
+        ${bi('Tavsif', ['services',i,'desc'], {area:true})}
+        <div class="f"><span>Rasm</span>
+          <div class="media">
+            <div class="thumb" style="${s.img==='tg' ? 'background:linear-gradient(160deg,#22304F,#121A2C);color:#fff' : `background-image:url(/${esc(s.img.replace(/^\//,''))})`}">${s.img==='tg' ? 'Telegram chat' : ''}</div>
+            <div class="opts">
+              <div class="presets">${PRESETS.map(k => `<button data-act="preset" data-i="${i}" data-v="img/${k}-hero.webp" class="${s.img===`img/${k}-hero.webp`?'on':''}" style="background-image:url(/img/${k}-hero.webp)" title="${k}"></button>`).join('')}<button class="tgp ${s.img==='tg'?'on':''}" data-act="preset" data-i="${i}" data-v="tg">TG</button></div>
+              <div class="row"><button class="btn ghost small" data-act="upload" data-l="services" data-i="${i}">O'z rasmingizni yuklash</button></div>
+            </div>
+          </div>
+        </div>
+      </div>`).join('') + `<button class="add" data-act="add" data-l="services">+ Yangi xizmat</button>`;
+    },
+    about(){
+      return `<p class="hint">Bu matn scroll qilinganda so'zma-so'z yorishadi. <b>*yulduzcha ichidagi so'zlar*</b> oltin rangda kursiv bo'lib chiqadi.</p>
+      <div class="item"><div class="item-h"><span class="t">Haqimda matni</span></div>${bi('Matn', ['about'], {area:true})}</div>
+      <p class="hint" style="margin-top:28px"><b>Qanday ishlayman</b> — qadamlar</p>` +
+      C.steps.map((s,i) => `<div class="item">${head('steps', i, s.title.uz)}${bi('Nomi', ['steps',i,'title'])}${bi('Tavsif', ['steps',i,'desc'], {area:true})}</div>`).join('') +
+      `<button class="add" data-act="add" data-l="steps">+ Yangi qadam</button>`;
+    },
+    plans(){
+      return `<p class="hint">Narx raqamini bo'sh joy bilan yozing: <b>1 500 000</b>. Ruscha sahifada oldiga avtomatik "от" qo'shiladi.</p>` +
+      C.plans.map((p,i) => `<div class="item">${head('plans', i, p.name.uz)}
+        ${bi('Paket nomi', ['plans',i,'name'])}
+        ${bi('Kim uchun', ['plans',i,'for'])}
+        <div class="grid2">${field("Narx (so'mdan)", ['plans',i,'price'], {ph:'1 500 000'})}<label class="f"><span>Ajratib ko'rsatish</span><label class="chk"><input type="checkbox" data-act="hot" data-i="${i}" ${p.hot?'checked':''}> "Tavsiya etaman" belgisi bilan</label></label></div>
+        ${bi('Muddat', ['plans',i,'time'], {ph:'5–7 kun'})}
+        <div class="grid2">
+          <label class="f"><span>Imkoniyatlar <i>UZ</i></span><textarea class="ta" data-feat="${i}" data-lang="uz" style="min-height:130px">${esc(p.features.map(f=>f.uz).join('\n'))}</textarea><small>Har bir qatorga bittadan</small></label>
+          <label class="f"><span>Imkoniyatlar <i>RU</i></span><textarea class="ta" data-feat="${i}" data-lang="ru" style="min-height:130px">${esc(p.features.map(f=>f.ru).join('\n'))}</textarea></label>
+        </div>
+      </div>`).join('') + `<button class="add" data-act="add" data-l="plans">+ Yangi paket</button>`;
+    },
+    faq(){
+      return `<p class="hint">Savol-javoblar Google'ga ham yuboriladi va qidiruvda chiqishi mumkin.</p>` +
+      C.faq.map((f,i) => `<div class="item">${head('faq', i, f.q.uz)}${bi('Savol', ['faq',i,'q'])}${bi('Javob', ['faq',i,'a'], {area:true})}</div>`).join('') +
+      `<button class="add" data-act="add" data-l="faq">+ Yangi savol</button>` +
+      `<div class="danger">Hamma bo'limlarni boshlang'ich holatiga qaytarish: <button data-act="reset">standart matnlarni tiklash</button></div>`;
+    },
+  };
+  function render(){
+    const y = scrollY;
+    $('#main').innerHTML = VIEWS[tab]();
+    document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
+    scrollTo(0, y);
+  }
+  $('#tabs').addEventListener('click', e => { const b = e.target.closest('button[data-tab]'); if (!b) return; tab = b.dataset.tab; scrollTo(0,0); render(); });
+
+  // ---------- edits ----------
+  $('#main').addEventListener('input', e => {
+    const t = e.target;
+    if (t.dataset.p){
+      const p = t.dataset.p.split('.').map(k => /^\d+$/.test(k) ? +k : k);
+      set(p, t.value);
+      if (p[p.length-1] === 'uz' && p[p.length-2] !== 'about'){ const h = t.closest('.item')?.querySelector('.item-h .t'); if (h && p.length === 4 && ['title','name','q'].includes(p[2])) h.textContent = t.value || '—'; }
+      if (p[0] === 'projects' && p[2] === 'url'){ clearTimeout(render.t); render.t = setTimeout(() => { const a = document.activeElement; const k = a?.dataset?.p; const pos = a?.selectionStart; render(); if (k){ const n = document.querySelector(`[data-p="${k}"]`); if (n){ n.focus(); try { n.setSelectionRange(pos,pos); } catch(_){} } } }, 600); }
+    } else if (t.dataset.feat !== undefined){
+      const i = +t.dataset.feat, lang = t.dataset.lang;
+      const lines = t.value.split('\n'); const P = C.plans[i];
+      const n = Math.max(lines.length, P.features.length);
+      const out = [];
+      for (let k = 0; k < n; k++){ const f = P.features[k] || blank(); out.push(Object.assign({}, f, {[lang]: (lines[k] ?? '').trim()})); }
+      P.features = out.filter(f => f.uz || f.ru); setDirty(true);
+    }
+  });
+  $('#main').addEventListener('change', e => { const t = e.target; if (t.dataset.act === 'hot'){ C.plans[+t.dataset.i].hot = t.checked; setDirty(true); } });
+
+  const NEW = {
+    projects: () => ({title:blank(), desc:blank(), tag:{uz:'Ochiq', ru:'Открыт'}, url:'', note:blank(), bar:'', mock:'', img:''}),
+    services: () => ({title:blank(), desc:blank(), img:'img/kafe-hero.webp'}),
+    steps: () => ({title:blank(), desc:blank()}),
+    plans: () => ({hot:false, name:blank(), for:blank(), price:'', time:blank(), features:[]}),
+    faq: () => ({q:blank(), a:blank()}),
+  };
+  $('#main').addEventListener('click', async e => {
+    const b = e.target.closest('[data-act]'); if (!b || b.tagName === 'INPUT') return;
+    const act = b.dataset.act, L = b.dataset.l, i = +b.dataset.i;
+    if (act === 'up' && i > 0){ const a = C[L]; [a[i-1], a[i]] = [a[i], a[i-1]]; setDirty(true); render(); }
+    else if (act === 'down' && i < C[L].length - 1){ const a = C[L]; [a[i+1], a[i]] = [a[i], a[i+1]]; setDirty(true); render(); }
+    else if (act === 'del'){ const name = (C[L][i].title || C[L][i].name || C[L][i].q || {}).uz || 'bu element'; if (confirm(`"${name}" o'chirilsinmi?`)){ C[L].splice(i,1); setDirty(true); render(); } }
+    else if (act === 'add'){ C[L].push(NEW[L]()); setDirty(true); render(); const items = document.querySelectorAll('.item'); items[items.length-1]?.scrollIntoView({behavior:'smooth', block:'center'}); items[items.length-1]?.querySelector('input,textarea')?.focus({preventScroll:true}); }
+    else if (act === 'mock'){ C.projects[i].mock = b.dataset.v; C.projects[i].img = ''; setDirty(true); render(); }
+    else if (act === 'noimg'){ C.projects[i].img = ''; setDirty(true); render(); }
+    else if (act === 'preset'){ C.services[i].img = b.dataset.v; setDirty(true); render(); }
+    else if (act === 'upload'){ pickImage(L, i, b); }
+    else if (act === 'reset'){
+      if (!confirm("Barcha o'zgarishlar o'chib, saytdagi boshlang'ich matnlar tiklanadi. Davom etasizmi?")) return;
+      try { const j = await api('reset', {method:'POST'}); C = j.content; setDirty(false); render(); toast('Standart matnlar tiklandi'); } catch(err){ toast('Xatolik', true); }
+    }
+  });
+
+  // ---------- image upload (resize in browser) ----------
+  function pickImage(L, i, btn){
+    const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+    inp.onchange = async () => {
+      const file = inp.files[0]; if (!file) return;
+      const old = btn.textContent; btn.disabled = true; btn.textContent = 'Yuklanmoqda...';
+      try {
+        const blob = await resize(file, 1600);
+        const r = await fetch('/api/admin/upload', {method:'POST', credentials:'same-origin', headers:{'content-type': blob.type}, body: blob});
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || !j.ok) throw new Error(j.error || 'upload');
+        C[L][i].img = j.url; if (L === 'projects') C[L][i].mock = C[L][i].mock || '';
+        setDirty(true); render(); toast('Rasm yuklandi. Saqlashni unutmang');
+      } catch(err){ toast(err.message === 'size' ? 'Rasm juda katta' : 'Rasmni yuklab bo\'lmadi', true); btn.disabled = false; btn.textContent = old; }
+    };
+    inp.click();
+  }
+  function resize(file, max){
+    return new Promise((res, rej) => {
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => {
+        const k = Math.min(1, max / img.width), w = Math.round(img.width * k), h = Math.round(img.height * k);
+        const cv = document.createElement('canvas'); cv.width = w; cv.height = h; cv.getContext('2d').drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        cv.toBlob(b => b && b.type === 'image/webp' ? res(b) : cv.toBlob(b2 => b2 ? res(b2) : rej(new Error('encode')), 'image/jpeg', .86), 'image/webp', .85);
+      };
+      img.onerror = () => rej(new Error('read')); img.src = url;
+    });
+  }
+
+  // ---------- save ----------
+  async function save(){
+    const btn = $('#save'); btn.disabled = true; $('#status').textContent = 'Saqlanmoqda...';
+    try { const j = await api('content', {method:'PUT', headers:{'content-type':'application/json'}, body: JSON.stringify(C)}); C = j.content; setDirty(false); render(); toast('Saqlandi. Saytda darhol yangilandi'); }
+    catch(err){ if (err.message !== 'auth'){ setDirty(true); toast('Saqlab bo\'lmadi', true); } }
+  }
+  $('#save').addEventListener('click', save);
+  addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's'){ e.preventDefault(); if (dirty) save(); } });
+
+  // start
+  fetch('/api/admin/me', {credentials:'same-origin'}).then(r => r.ok ? boot() : r.json().then(j => { showLogin(); if (j.error === 'not_configured') $('#loginerr').textContent = "ADMIN_PASSWORD hali Cloudflare'da sozlanmagan."; })).catch(showLogin);
+})();
+</script>
+</body>
+</html>
