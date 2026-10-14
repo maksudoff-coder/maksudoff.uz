@@ -11,8 +11,8 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    if (url.hostname === 'www.maksudoff.uz') {
-      url.hostname = 'maksudoff.uz';
+    if (url.hostname === 'www.maksudoff.uz' || (url.protocol === 'http:' && url.hostname.endsWith('maksudoff.uz'))) {
+      url.hostname = 'maksudoff.uz'; url.protocol = 'https:';
       return Response.redirect(url.toString(), 301);
     }
     if (path === '/api/lead') {
