@@ -3,23 +3,23 @@
  "projects": [
   {
    "title": {
-    "uz": "Sud vositalari",
-    "ru": "Инструменты для суда"
+    "uz": "Hujjat generatori",
+    "ru": "Генератор документов"
    },
    "desc": {
-    "uz": "Tayinlash ajrimi kabi protsessual hujjatlarni bir necha daqiqada tayyorlaydigan generatorlar.",
-    "ru": "Генераторы, которые за несколько минут готовят процессуальные документы, например определение о назначении дела."
+    "uz": "Shartnoma, ariza va dalolatnomalarni shablon bo'yicha bir necha daqiqada to'ldirib, Word faylga chiqaradi.",
+    "ru": "За несколько минут заполняет договоры, заявления и акты по шаблону и выгружает их в Word."
    },
    "tag": {
-    "uz": "Ochiq",
-    "ru": "Открыт"
+    "uz": "Ichki tizim",
+    "ru": "Внутренняя система"
    },
-   "url": "https://sud.maksudoff.uz",
+   "url": "",
    "note": {
-    "uz": "",
-    "ru": ""
+    "uz": "har kuni ishlatiladi",
+    "ru": "используется каждый день"
    },
-   "bar": "sud.maksudoff.uz",
+   "bar": "hujjat-generator",
    "mock": "sud",
    "img": ""
   },
@@ -29,8 +29,8 @@
     "ru": "Система протоколов"
    },
    "desc": {
-    "uz": "Sud majlisi bayonnomasini tez yozish uchun ish joyi: hisoblar, serverda saqlash, Word'ga eksport.",
-    "ru": "Рабочее место для быстрого ведения протокола судебного заседания: учётные записи, хранение на сервере, экспорт в Word."
+    "uz": "Yig'ilish va majlis bayonnomalarini tez yozish uchun ish joyi: foydalanuvchilar, serverda saqlash, Word'ga eksport.",
+    "ru": "Рабочее место для быстрого ведения протоколов собраний и заседаний: пользователи, хранение на сервере, экспорт в Word."
    },
    "tag": {
     "uz": "Yopiq tizim",
@@ -41,7 +41,7 @@
     "uz": "ichki foydalanish uchun",
     "ru": "для внутреннего использования"
    },
-   "bar": "bayonnoma.maksudoff.uz",
+   "bar": "bayonnoma",
    "mock": "bay",
    "img": ""
   },
@@ -86,8 +86,8 @@
     "ru": "Генераторы документов"
    },
    "desc": {
-    "uz": "Ariza, shartnoma, ajrim kabi hujjatlarni shablon bo'yicha to'ldirib, Word faylga chiqaradi.",
-    "ru": "Заполняют заявления, договоры и определения по шаблону и выгружают их в Word."
+    "uz": "Ariza, shartnoma, dalolatnoma kabi hujjatlarni shablon bo'yicha to'ldirib, Word faylga chiqaradi.",
+    "ru": "Заполняют заявления, договоры и акты по шаблону и выгружают их в Word."
    },
    "img": "img/yuridik-hero.webp"
   },
@@ -115,8 +115,8 @@
   }
  ],
  "about": {
-  "uz": "Men Shaxboz Maksudoff, Toshkentdanman. Huquq sohasida ishlayman, shuning uchun rasmiy hujjatlar va *aniq tartib* bilan ishlashni ichidan bilaman. Takrorlanadigan qo'l mehnatini ko'rib, uni *dastur bilan* yengillashtirishni boshladim. Endi xuddi shu aniqlik bilan bizneslar uchun *sayt quraman.*",
-  "ru": "Я Shaxboz Maksudoff, из Ташкента. Работаю в юридической сфере, поэтому изнутри знаю, что такое официальные документы и *чёткий порядок.* Видя однообразную ручную работу, я начал облегчать её *с помощью программ.* Теперь с той же точностью *создаю сайты* для бизнеса."
+  "uz": "Men Shaxboz Maksudoff, Toshkentdanman. Har bir ishda *aniq tartib* va puxtalikni yaxshi ko'raman. Takrorlanadigan qo'l mehnatini ko'rib, uni *dastur bilan* yengillashtirishni boshladim. Endi xuddi shu aniqlik bilan bizneslar uchun *sayt quraman.*",
+  "ru": "Я Shaxboz Maksudoff, из Ташкента. В любой работе ценю *чёткий порядок* и аккуратность. Видя однообразную ручную работу, я начал облегчать её *с помощью программ.* Теперь с той же точностью *создаю сайты* для бизнеса."
  },
  "steps": [
   {
