@@ -5,8 +5,9 @@ Shaxboz Maksudoff'ning shaxsiy sayti.
 - `public/` — sayt fayllari (Cloudflare Pages: **Build output directory** = `public`, build command bo'sh)
 - `public/ru/` — rus tilidagi sahifa (SEO uchun, `public/index.html` dan yasalgan)
 - `functions/api/lead.js` — ariza formasi → Telegram (@maksudoff_ariza_bot)
+- `worker.js` + `wrangler.jsonc` — Cloudflare Workers (Git orqali avtomatik deploy, `npx wrangler deploy`)
 
-## Cloudflare Pages sozlamalari
+## Cloudflare sozlamalari (Variables and Secrets)
 | O'zgaruvchi | Turi | Qiymat |
 |---|---|---|
 | `TG_TOKEN` | Secret | BotFather bergan token |
