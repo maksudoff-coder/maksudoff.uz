@@ -64,7 +64,7 @@ export function jsonLd(c, lang) {
     { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'Maksudoff', url: 'https://maksudoff.uz/',
       image: 'https://maksudoff.uz/og.jpg', logo: 'https://maksudoff.uz/brand/icon-512.png',
       description: "Kafe, klinika, o'quv markazi va do'konlar uchun veb-saytlar, Telegram botlar va hujjat generatorlari.",
-      email: 'info@maksudoff.uz', founder: { '@type': 'Person', name: 'Shaxboz Maksudoff' },
+      email: 'info@maksudoff.uz',
       address: { '@type': 'PostalAddress', addressLocality: 'Toshkent', addressCountry: 'UZ' }, areaServed: 'UZ',
       sameAs: ['https://t.me/maksudoff'] },
     { '@context': 'https://schema.org', '@type': 'FAQPage',

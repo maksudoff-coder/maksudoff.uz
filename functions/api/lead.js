@@ -1,7 +1,7 @@
 // POST /api/lead — saytdagi arizani Telegram'ga yuboradi.
 // Cloudflare Pages > Settings > Variables and Secrets:
 //   TG_TOKEN  — BotFather bergan token (Secret sifatida)
-//   TG_CHAT   — (ixtiyoriy) arizalar keladigan chat ID; berilmasa Shaxbozning ID'si ishlatiladi
+//   TG_CHAT   — (ixtiyoriy) arizalar keladigan chat ID; berilmasa standart ID ishlatiladi
 // Bot: @maksudoff_ariza_bot
 // Ixtiyoriy: LEADS_KV nomli KV bog'lansa, bitta IP'dan soatiga 5 tadan ortiq ariza qabul qilinmaydi.
 
