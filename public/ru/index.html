@@ -18,7 +18,8 @@
 <meta property="og:title" content="Maksudoff — сайты для бизнеса">
 <meta property="og:description" content="Современные сайты для кафе, клиник, учебных центров и магазинов. Ташкент.">
 <meta property="og:url" content="https://maksudoff.uz/ru/">
-<meta property="og:image" content="https://maksudoff.uz/og.jpg">
+<meta property="og:image" content="https://maksudoff.uz/og.jpg?v=2">
+<meta name="twitter:image" content="https://maksudoff.uz/og.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -262,6 +263,8 @@ button{font:inherit;color:inherit}
 .cap h3 span{display:block;transform:translateY(110%);transition:transform .9s var(--ease)}
 .cap p{margin:0;font:400 15px/1.6 var(--text);color:var(--ink2);opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .8s var(--ease)}
 .cap.was h3 span{transform:translateY(-110%)}
+.cap:first-child h3{font-size:clamp(32px,3vw,48px);line-height:1.05}
+.cap:first-child h3 span{transition-delay:.25s}
 .cap.was .ck,.cap.was p{transform:translateY(-10px)}
 .cap.on .ck{opacity:1;transform:none;transition-delay:.05s}
 .cap.on .ck i{transform:none;transition-delay:.15s}
@@ -1278,7 +1281,7 @@ const CONTACT = {
     ru: "Я из Ташкента. В любой работе ценю *чёткий порядок* и аккуратность. Видя однообразную ручную работу, я начал облегчать её *с помощью программ.* Теперь с той же точностью *создаю сайты* для бизнеса.",
   };
   const CAPS_RU = [
-    ['00','Начало','Пустая страница','Любой сайт начинается здесь. Листайте вниз.'],
+    ['00','Начало','Сайт строится у вас на глазах','Листайте вниз.'],
     ['01','Структура','Сначала план','Сетка из 12 колонок. У каждого блока своё место.'],
     ['02','Блоки','Страница собирается','Заголовок, фото, кнопки и карточки встают на свои места.'],
     ['03','Дизайн','Для кафе','Тёплые цвета, аппетитные фото и кнопка бронирования стола.'],
@@ -1428,7 +1431,7 @@ const CONTACT = {
 
   // side captions
   const CAPS = [
-    ['00','Boshlanish',"Bo'sh sahifa",'Har bir sayt shu yerdan boshlanadi. Pastga suring.'],
+    ['00','Boshlanish',"Saytingiz ko'z oldingizda quriladi",'Pastga suring.'],
     ['01','Tuzilma','Avval reja',"12 ustunli setka. Har bir blokning aniq joyi bor."],
     ['02','Bloklar',"Sahifa yig'iladi","Sarlavha, rasm, tugmalar va kartochkalar o'z joyiga tushadi."],
     ['03','Dizayn','Kafe uchun',"Iliq ranglar, ishtaha ochadigan rasmlar va stol bron qilish tugmasi."],
@@ -1592,6 +1595,8 @@ const CONTACT = {
     motes = Array.from({length: Math.round(stage.clientWidth / 22)}, () => ({x: Math.random()*stage.clientWidth, y: Math.random()*stage.clientHeight, r: .6 + Math.random()*1.8, v: .08 + Math.random()*.25, a: .15 + Math.random()*.45, p: Math.random()*6.28})); }
   sizeDust(); addEventListener('resize', sizeDust);
   function dust(t){
+    if (document.body.dataset.bg !== '6'){ if (!dust.off){ cx.clearRect(0, 0, cv.width, cv.height); dust.off = true; } if (!reduce) requestAnimationFrame(dust); return; }
+    dust.off = false;
     cx.clearRect(0, 0, cv.width, cv.height);
     for (const m of motes){
       if (!reduce){ m.y -= m.v; m.x += Math.sin(t/2400 + m.p) * .15; if (m.y < -5){ m.y = stage.clientHeight + 5; m.x = Math.random()*stage.clientWidth; } }
