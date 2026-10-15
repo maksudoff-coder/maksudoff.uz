@@ -66,7 +66,7 @@ export function jsonLd(c, lang) {
       description: "Kafe, klinika, o'quv markazi va do'konlar uchun veb-saytlar, Telegram botlar va hujjat generatorlari.",
       email: 'info@maksudoff.uz', telephone: '+998939625556',
       address: { '@type': 'PostalAddress', addressLocality: 'Toshkent', addressCountry: 'UZ' }, areaServed: 'UZ',
-      sameAs: ['https://t.me/maksudoff', 'https://instagram.com/maksudoff.uz'] },
+      sameAs: ['https://t.me/maksudoff', 'https://instagram.com/maksudoff.uz', 'https://t.me/maksudoff_uz'] },
     { '@context': 'https://schema.org', '@type': 'FAQPage',
       mainEntity: c.faq.map(f => ({ '@type': 'Question', name: L(f.q), acceptedAnswer: { '@type': 'Answer', text: L(f.a) } })) },
   ];
